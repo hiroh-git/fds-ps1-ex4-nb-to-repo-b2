@@ -1,0 +1,15 @@
+[workspace]
+authors = ["hiroh-git <hara.yasuh@gmail.com>"]
+channels = ["conda-forge"]
+name = "fds-ps1-ex4-nb-to-repo-b2"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.13.*"
+ruff = ">=0.17.1,<0.18"
+mypy = ">=2.4.0,<3"
+pre-commit = ">=4.7.0,<5"
+identify = ">=2.5.0"
