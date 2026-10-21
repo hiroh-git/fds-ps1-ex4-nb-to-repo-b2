@@ -4,9 +4,11 @@ channels:
   - conda-forge
 dependencies:
   - python=3.13
+  - ipykernel
   - pathlib
-  - pandas
-  - numpy
+  - yaml
   - matplotlib
+  - numpy
+  - pandas
   - seaborn
   - scikit-learn

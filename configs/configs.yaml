@@ -1,0 +1,4 @@
+data:
+  data_dir: "data"
+  train_file: "train.csv"
+  test_file: "test.csv"
