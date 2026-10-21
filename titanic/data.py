@@ -119,7 +119,7 @@ def plot_count_pair(df: pd.DataFrame, feature: str, hue: str | None = None) -> N
     if hue is None:
         sns.countplot(x=feature, data=df)
     else:
-        color_list = sns.color_palette()[: len(df[hue].unique())]
+        color_list = sns.color_palette()[: df[hue].nunique()]
         sns.countplot(x=feature, data=df, hue=hue, palette=color_list)
     plt.grid(color="black", linestyle="-.", linewidth=0.5, axis="y", which="major")
     ax.set_title(f"Number of passengers / {feature}")
