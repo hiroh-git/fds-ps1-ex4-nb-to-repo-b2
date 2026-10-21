@@ -71,7 +71,7 @@ def frequent_data_summary(df: pd.DataFrame) -> pd.DataFrame:
             val = df[col].value_counts().values[0]
             items.append(itm)
             vals.append(val)
-        except (ValueError, TypeError) as ex:  # Specify exceptions to catch
+        except TypeError as ex:  # Specify exceptions to catch
             print(ex)
             items.append(0)
             vals.append(0)
@@ -115,11 +115,11 @@ def plot_count_pair(df: pd.DataFrame, feature: str, hue: str | None = None) -> N
     """
     Plot count pairs for the specified feature (and hue).
     """
-    color_list = sns.color_palette()[: len(df[hue].unique())]
     _f, ax = plt.subplots(1, 1, figsize=(8, 4))
     if hue is None:
-        sns.countplot(x=feature, data=df, palette=color_list)
+        sns.countplot(x=feature, data=df)
     else:
+        color_list = sns.color_palette()[: len(df[hue].unique())]
         sns.countplot(x=feature, data=df, hue=hue, palette=color_list)
     plt.grid(color="black", linestyle="-.", linewidth=0.5, axis="y", which="major")
     ax.set_title(f"Number of passengers / {feature}")
