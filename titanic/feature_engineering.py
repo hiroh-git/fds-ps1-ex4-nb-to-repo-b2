@@ -127,3 +127,13 @@ def titles_summary(df: pd.DataFrame) -> None:
         .mean()
     )
     print(df_copy)
+
+
+def one_hot_encode_sex(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    One hot encodes the Sex feature.
+    """
+    df_copy = df.copy()
+    df_copy["Sex"] = df_copy["Sex"].map({"female": 1, "male": 0}).astype(int)
+
+    return df_copy
