@@ -2,8 +2,20 @@ data:
   data_dir: "data"
   train_file: "train.csv"
   test_file: "test.csv"
+  submission_file: "submission_baseline.csv"
 features:
   age_bins: [0, 16, 32, 48, 64, .inf]
   fare_bins: [0, 7.91, 14.454, 31, .inf]
   family_size_bins: [0, 1, 4, .inf]
   family_size_labels: ["Single", "Small", "Large"]
+model:
+  random_state: 42
+  val_size: 0.2
+  shuffle: true
+  predictors:
+    - "Sex"
+    - "Pclass"
+  target: "Survived"
+  n_estimators: 100
+  criterion: "gini"
+  n_jobs: -1
